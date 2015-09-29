@@ -26,6 +26,7 @@
 		1677CC331BBB02440052CA71 /* player2Throw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1677CC271BBB02440052CA71 /* player2Throw@2x.png */; settings = {ASSET_TAGS = (); }; };
 		1677CC341BBB02440052CA71 /* player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1677CC281BBB02440052CA71 /* player@2x.png */; settings = {ASSET_TAGS = (); }; };
 		1677CC351BBB02440052CA71 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1677CC291BBB02440052CA71 /* spark.png */; settings = {ASSET_TAGS = (); }; };
+		1677CC371BBB027C0052CA71 /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC361BBB027C0052CA71 /* BuildingNode.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		1677CC271BBB02440052CA71 /* player2Throw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player2Throw@2x.png"; sourceTree = "<group>"; };
 		1677CC281BBB02440052CA71 /* player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player@2x.png"; sourceTree = "<group>"; };
 		1677CC291BBB02440052CA71 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		1677CC361BBB027C0052CA71 /* BuildingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				1677CC121BBAECD20052CA71 /* Assets.xcassets */,
 				1677CC141BBAECD20052CA71 /* LaunchScreen.storyboard */,
 				1677CC171BBAECD20052CA71 /* Info.plist */,
+				1677CC361BBB027C0052CA71 /* BuildingNode.swift */,
 			);
 			path = "exploding-monkeys";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1677CC0C1BBAECD20052CA71 /* GameScene.swift in Sources */,
+				1677CC371BBB027C0052CA71 /* BuildingNode.swift in Sources */,
 				1677CC0E1BBAECD20052CA71 /* GameViewController.swift in Sources */,
 				1677CC081BBAECD20052CA71 /* AppDelegate.swift in Sources */,
 				1677CC2A1BBB02440052CA71 /* Helper.swift in Sources */,
