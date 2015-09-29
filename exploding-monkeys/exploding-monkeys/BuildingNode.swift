@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class BuildingNode: SKSpriteNode {
     var currentImage: UIImage!
@@ -21,7 +22,7 @@ class BuildingNode: SKSpriteNode {
     }
     
     func configurePhysics() {
-        physicsBody = SKPhysicsBody(texture: texture, size: size)
+        physicsBody = SKPhysicsBody(texture: texture!, size: size)
         physicsBody!.dynamic = false
         physicsBody!.categoryBitMask = CollisionTypes.Building.rawValue
         physicsBody!.contactTestBitMask = CollisionTypes.Banana.rawValue
@@ -70,5 +71,26 @@ class BuildingNode: SKSpriteNode {
         UIGraphicsEndImageContext()
         
         return img
+    }
+    
+    func hitAtPoint(point: CGPoint) {
+        let convertedPoint = CGPoint(x: point.x + size.width / 2.0, y: abs(point.y - (size.height / 2.0)))
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        currentImage.drawAtPoint(CGPoint(x: 0, y: 0))
+        
+        CGContextAddEllipseInRect(context, CGRect(x: convertedPoint.x - 32, y: convertedPoint.y - 32, width: 64, height: 64))
+        CGContextSetBlendMode(context, .Clear)
+        CGContextDrawPath(context, .Fill)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        texture = SKTexture(image: img)
+        currentImage = img
+        
+        configurePhysics()
     }
 }
