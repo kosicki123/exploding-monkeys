@@ -99,6 +99,5 @@ class GameViewController: UIViewController {
         launchButton.hidden = false
     }
     
-    func launch(angle angle: Int, velocity: Int) {
-    }
+    
 }
