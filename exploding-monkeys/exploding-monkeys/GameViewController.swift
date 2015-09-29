@@ -10,10 +10,20 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    var currentGame: GameScene!
 
+    @IBOutlet weak var playerNumber: UILabel!
+    @IBOutlet weak var velocitySlider: UISlider!
+    @IBOutlet weak var angleSlider: UISlider!
+    @IBOutlet weak var angleLabel: UILabel!
+    @IBOutlet weak var velocityLabel: UILabel!
+    @IBOutlet weak var launchButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        angleChanged(angleSlider)
+        velocityChanged(velocitySlider)
+        
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
@@ -27,6 +37,8 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            currentGame = scene
+            scene.viewController = self
         }
     }
 
@@ -49,5 +61,44 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    @IBAction func angleChanged(sender: AnyObject!) {
+        angleLabel.text = "Angle: \(Int(angleSlider.value))°"
+    }
+    
+    @IBAction func velocityChanged(sender: AnyObject!) {
+        velocityLabel.text = "Velocity: \(Int(velocitySlider.value))"
+    }
+    
+    @IBAction func launch(sender: AnyObject) {
+        angleSlider.hidden = true
+        angleLabel.hidden = true
+        
+        velocitySlider.hidden = true
+        velocityLabel.hidden = true
+        
+        launchButton.hidden = true
+        
+        currentGame.launch(angle: Int(angleSlider.value), velocity: Int(velocitySlider.value))
+    }
+    
+    func activatePlayerNumber(number: Int) {
+        if number == 1 {
+            playerNumber.text = "<<< PLAYER ONE"
+        } else {
+            playerNumber.text = "PLAYER TWO >>>"
+        }
+        
+        angleSlider.hidden = false
+        angleLabel.hidden = false
+        
+        velocitySlider.hidden = false
+        velocityLabel.hidden = false
+        
+        launchButton.hidden = false
+    }
+    
+    func launch(angle angle: Int, velocity: Int) {
     }
 }
